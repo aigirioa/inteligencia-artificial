@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+            <span class="fs-4">Inteligencia Artificial</span>
+        </a>
+    </header>
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+        <div class="container-fluid py-3">
+            <h1 class="display-5 fw-bold">Procesamiento de Modelos</h1>
+            <p class="my-3">
+                Este es el dataset original tal como fue cargado desde el archivo CSV, antes de aplicar cualquier transformación o limpieza.
+            </p>
+            <div class="overflow-auto">
+                {{ table_original | safe }}
+            </div>
+            <p class="my-3">
+                Se calcularon las tres notas del estudiante y se creó una nueva columna llamada ‘score’ que contiene el puntaje promedio. Luego se eliminaron las columnas de puntajes individuales.
+            </p>
+            <div class="overflow-auto">
+                {{ table_score | safe }}
+            </div>
+            <h2>One Hot Encoding</h2>
+            <p class="my-3">
+                Columna ‘gender’.
+            </p>
+            <div class="overflow-auto">
+                {{ table_gender | safe }}
+            </div>
+            <p class="my-3">
+                Columna ‘test_preparation_course’.
+            </p>
+            <div class="overflow-auto">
+                {{ table_test_preparation_course | safe }}
+            </div>
+            <p class="my-3">
+                Columna ‘lunch’.
+            </p>
+            <div class="overflow-auto">
+                {{ table_lunch | safe }}
+            </div>
+            <p class="my-3">
+                Columna ‘race_ethnicity’.
+            </p>
+            <div class="overflow-auto">
+                {{ table_race_ethnicity | safe }}
+            </div>
+            <h2 class="mt-3">Ordinal Encoding</h2>
+            <p class="my-3">
+                Columna ‘parental_level_of_education’.
+            </p>
+            <div class="overflow-auto">
+                {{ table_parental_level_of_education | safe }}
+            </div>
+        </div>
+    </div>
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+        <div class="container-fluid py-3">
+            <h2>Modelos de Machine Learning</h2>
+            <p>
+                En esta sección se comparan dos modelos de Machine Learning entrenados con el 80% y evaluados con el 20% restante para predecir el puntaje final de los estudiantes. Cada modelo fue evaluado con el conjunto de prueba utilizando el error cuadrático medio (MSE), donde un valor menor indica un mejor desempeño.
+            </p>
+            <div class="row align-items-md-stretch g-4">
+                <div class="col-md-6">
+                    <div class="h-100 p-5 text-bg-dark rounded-3">
+                        <h2>Random Forest Regressor</h2>
+                        <h3>{{ random_forest_mse | safe }}</h3>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="h-100 p-5 text-bg-dark rounded-3">
+                        <h2>Linear Regression</h2>
+                        <h3>{{ linear_regression_mse | safe }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

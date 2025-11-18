@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+            <span class="fs-4">Inteligencia Artificial</span>
+        </a>
+    </header>
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+        <div class="container-fluid py-3">
+            <h1 class="display-5 fw-bold">Rendimiento de estudiantes</h1>
+            <p>
+                Este proyecto comprende cómo el desempeño del estudiante (puntuaciones de las pruebas) se ve afectado por otras variables como género, raza/etnia, nivel de educación de los padres, alimentación y curso de preparación para las pruebas.
+            </p>
+            <p>
+                La base de datos contiene 1.000 registros y 8 columnas: género, raza/etnia, nivel de educación de los padres, alimentación, curso de preparación para las pruebas, puntuación de matemáticas, puntuación de lectura y puntuación de escritura.
+            </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <a href="{{ url_for('process_models') }}" class="btn btn-dark btn-lg" type="button">Comenzar</a>
+                <a href="https://www.kaggle.com/datasets/bhavikjikadara/student-study-performance" target="_blank" class="btn btn-outline-dark btn-lg" type="button">Descargar datos</a>
+            </div>
+        </div>
+        <div class="row align-items-md-stretch g-4">
+            <div class="col-md-6">
+                <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+                    <h2>Desarrolladores</h2>
+                    <p>
+                        Alex Igirio Alzate <br/>
+                        Isabel Cristina Jaramillo <br/>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="h-100 p-5 text-bg-dark rounded-3">
+                    <h2>Github</h2>
+                    <p>Repositorio del proyecto en Github.</p>
+                    <a href="https://github.com/aigirioa" target="_blank" class="btn btn-light" type="button">Ir a Github</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="pt-3 mt-4 text-body-secondary border-top">Tecnológico de Antioquia - 2025</footer>
+</div>
+{% endblock %}
